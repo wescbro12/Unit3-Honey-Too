@@ -18,10 +18,10 @@ app.use(express.static(path.join(__dirname, 'build')))
 
 // app.use(express.urlencoded({ extened: true }))
 
-app.use((req, res, next) => {
-    console.log(req.body)
-    next()
-})
+// app.use((req, res, next) => {
+//     console.log(req.body)
+//     next()
+// })
 
 //ROUTES\\
 app.use('/', router)

@@ -1,4 +1,3 @@
-import { options } from "nodemon/lib/config";
 import { getToken } from "./users-service";
 const Base_URL = '/api/users';
 
@@ -15,14 +14,14 @@ export async function login(credentials) {
 }
 
 async function sendRequest(url, method = 'GET', payload = null) {
-    const option = { method };
+    const options = { method };
     if (payload) {
         options.headers = { 'Content-Type': 'application/json' };
         options.body = JSON.stringify(payload);
     }
     const token = getToken();
     if (token) {
-        option.headers = options.headers || {};
+        options.headers = options.headers || {};
         options.headers.Authorization = `Bearer ${token}`;
     }
     const res = await fetch(url, options);

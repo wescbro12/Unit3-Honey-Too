@@ -1,16 +1,29 @@
 // import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react'
+import AuthPage from '../AuthPage/AuthPage';
 import Home from '../Home';
 import {Routes, Route} from 'react-router-dom'
 
 function App() {
+  const [user, setUser] = useState(null);
+
   return (
-    <div className="App">
-      <Routes>
-        <Route path ='/' element={<Home />} />
-      </Routes>
+    <main className="App">
       
-    </div>
+      {
+       
+        user ?
+          <Routes>
+            {/* <Route path='/' element={<Home />} /> */}
+          </Routes>
+          :
+          <Home />
+          // <AuthPage setUser={setUser} />
+      }
+      
+      
+    </main>
   );
 }
 

@@ -1,4 +1,8 @@
 {
+  "engines": {
+    "node": "16.13.1"
+  },
+  "proxy": "http://localhost:3001",
   "name": "honey_do",
   "version": "0.1.0",
   "private": true,
@@ -43,5 +47,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }

@@ -1,10 +1,9 @@
-import { getSuggestedQuery } from '@testing-library/react';
 import * as usersAPI from './users-api'
 
 
 //Sign Up
 export async function signUp(userData) {
-    const token = await usersAPI.signup(userData);
+    const token = await usersAPI.signUp(userData);
     localStorage.setItem('token', token)
     return token;
 }

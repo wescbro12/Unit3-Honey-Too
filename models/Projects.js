@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const projectSchema = new Schema({
     title: String,
     entry: String,
-    tools: [{ type: mongoose.Schema.ObjectId, ref: "Tool" }]
+    // tools: [{ type: mongoose.Schema.ObjectId, ref: "Tool" }]
 });
 
 

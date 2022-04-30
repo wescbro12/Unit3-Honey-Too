@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 // const favicon = require('serve-favicon');
 const logger = require('morgan');
+ const cors = require('cors')
 // const router = require('./routes/api/project')
 
 
@@ -13,6 +14,7 @@ const app = express();
 //MIDDLEWARE\\
 app.use(logger('dev'));
 app.use(express.json());
+app.use(cors())
 // app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')))
 app.use(express.static(path.join(__dirname, 'build')))
 
@@ -20,7 +22,7 @@ app.use(express.static(path.join(__dirname, 'build')))
 app.use(require('./config/checkToken'));
 
 //ROUTES- make sure they are before catch all\\
-app.use('/', require('./routes/api/project'))
+app.use('/api/projects', require('./routes/api/projects'))
 app.use('/api/users', require('./routes/api/users'))
 
 //CATCH-ALL ROUTE\\

@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { signUp } from '../../utilities/users-service';
+import { useNavigate } from 'react-router-dom';
 
 export default class SignUpForm extends Component {
     state = {
@@ -9,6 +10,7 @@ export default class SignUpForm extends Component {
         confirm: '',
         error: ''
     }
+    
 
     handleChange = (evt) => {
         this.setState({ ...this.state, [evt.target.name]: evt.target.value, error: '' })

@@ -4,14 +4,13 @@ const project = require('../../controllers/api/projects')
 
 
 
-//Home
-router.get('/', project.home)
+
+//Projects Index
+
+router.get('/index', project.index)
 
 
-//Projects Home
-
-router.get('/projects', project.index)
-
-
+//Create new 
+router.post('/new', project.create)
 
 module.exports = router;

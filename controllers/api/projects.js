@@ -20,7 +20,7 @@ module.exports = {
 async function index (req, res) {
     try {
       
-        const projects = await Project.find({title:"test 2"})
+        const projects = await Project.find({})
         res.status(200).json(projects)
     } catch (err) {
         res.status(400).json({msg:err.message})

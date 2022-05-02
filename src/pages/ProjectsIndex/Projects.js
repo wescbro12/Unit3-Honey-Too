@@ -7,7 +7,7 @@ import * as projectsApi from "../../utilities/project-api"
 
 export default function Projects(props) {
     //declaring Variables and State
-    const id = useParams()
+    // const id = useParams()
     const [projects, setProjects] = useState([])
     const [error, setError] = useState('')
 

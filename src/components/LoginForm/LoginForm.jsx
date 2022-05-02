@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState } from 'react';
 import * as userService from '../../utilities/users-service';
+
 
 export default function LoginForm({ setUser }) {
     const [credentials, setCredentials] = useState({
@@ -7,10 +8,12 @@ export default function LoginForm({ setUser }) {
         password: ''
     })
     const [error, setError] = useState('')
+
     const handleChange = (evt) => {
         setCredentials({ ...credentials, [evt.target.name]: evt.target.value });
         setError('');
     }
+
     const handleSubmit = async (evt) => {
         evt.preventDefault()
         try {
@@ -20,6 +23,7 @@ export default function LoginForm({ setUser }) {
             setError(error.message)
         }
     }
+
     return (
         <div>
             <div className="form-container">
@@ -28,10 +32,11 @@ export default function LoginForm({ setUser }) {
                     <input type="email" name="email" value={credentials.email} onChange={handleChange} required />
                     <label>Password</label>
                     <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
-                    <button type="submit">Log In</button>
+                    <button type="submit">LOG IN</button>
                 </form>
             </div>
             <h1 className="error-message">&nbsp;{error}</h1>
         </div>
     )
+
 }

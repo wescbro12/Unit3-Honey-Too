@@ -9,8 +9,15 @@ const project = require('../../controllers/api/projects')
 
 router.get('/index', project.index)
 
+//Delete
+
+//Udate
+router.get('/:id/edit', project.edit)
 
 //Create new 
 router.post('/new', project.create)
+
+//Show Route
+router.get('/:id', project.show)
 
 module.exports = router;

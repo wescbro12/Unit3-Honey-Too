@@ -9,8 +9,8 @@ module.exports = {
     // delete,
     // update,
     create,
-    // edit,
-    //show
+    edit,
+    show
     
 
 }
@@ -43,5 +43,21 @@ async function create(req, res) {
     }
 }
 //Edit
+async function edit(req, res) {
+    try {
+        const project = await Project.findById(req.params.id)
+        res.status(200).json(project)
+    } catch (err) {
+        res.status(400).json({msg:err.message})
+    }
+}
 
 //show
+async function show(req, res) {
+    try {
+        const project = await Project.findById(req.params.id)
+        res.status(200).json(project)
+    } catch (err) {
+        res.status(400).json({msg:err.message})
+    }
+}

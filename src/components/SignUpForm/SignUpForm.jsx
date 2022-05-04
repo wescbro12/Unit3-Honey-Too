@@ -3,6 +3,7 @@ import { signUp } from '../../utilities/users-service';
 import { useNavigate } from 'react-router-dom';
 
 export default class SignUpForm extends Component {
+    
     state = {
         name: '',
         email: '',
@@ -18,16 +19,18 @@ export default class SignUpForm extends Component {
     
     handleSubmit = async (evt) => {
         evt.preventDefault();
-        const Navigate = useNavigate()
+        // const Navigate = useNavigate()
         try {
             const formData = { ...this.state };
             delete formData.error;
             delete formData.confirm;
             const user = await signUp(formData)
             this.props.setUser(user)
-            Navigate('/login')
+            
         } catch (error) {
             this.setState({ error: 'Sign Up Failed' })
+        } finally {
+            // Navigate('/login')
         }
     }
 

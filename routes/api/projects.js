@@ -10,9 +10,10 @@ const project = require('../../controllers/api/projects')
 router.get('/index', project.index)
 
 //Delete
+router.delete('/:id', project.destroy)
 
 //Udate
-router.get('/:id/edit', project.edit)
+router.put('/:id/edit', project.edit)
 
 //Create new 
 router.post('/new', project.create)

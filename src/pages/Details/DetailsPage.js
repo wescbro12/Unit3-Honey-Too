@@ -2,17 +2,22 @@ import NavBar from "../../components/NavBar/NavBar";
 import { Link } from "react-router-dom";
 import * as projectsApi from "../../utilities/project-api";
 import { useState, useEffect, useRef } from "react";
+import { useParams } from "react-router-dom";
 
-export default function Details() {
+export default function Details({user, setUser}) {
     const title = useRef(null)
     const entry = useRef(null)
+    let params = useParams()
+    const [project, setProject] = useState({
+        title: '',
+        entry:''
 
-    const [project, setProject] = useState([])
+    })
     const [error, setError] = useState('')
 
-    const getOneProject = async () => {
+    const getOneProject = async (id) => {
         try {
-            const response = await projectsApi.getOneProject({title:title.current.value, entry: entry.current.value})
+            const response = await projectsApi.getOneProject(id)
             setProject(response)
         } catch (error) {
             setError("Bad Request")
@@ -20,20 +25,24 @@ export default function Details() {
     }
 
     useEffect(() => {
-        getOneProject(`${project._id}`)
+        getOneProject(params.id)
     },[])
     return (
         <>
             <NavBar />
-            <h1>Project Details Page</h1>
+            <h1>{project.title}</h1>
             <div>
-                <p>Project Description:</p> <textarea className="displaytext" ref={entry} />
+                <p>Project Description:</p>
+                <div>
+                    {project.entry}
+                </div>
                 <p>Tools needed for this project: <br /></p>
                 <ul>
                     <li>Hammer</li>
                 </ul>
                 {/* <p>Notes:</p> <textarea className="displaytext" /> */}
                 <br /><Link to={`/projects/${project._id}/edit`}>Edit your project</Link><br />
+                //add delete form here
             </div>
         </>
 

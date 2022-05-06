@@ -4,18 +4,18 @@ const tool = require('../../controllers/api/tools')
 
 //Tools Index
 
-router.get('/', tool.index)
+router.get('/index', tool.index)
 
 //Delete
-router.delete('/:id', project.destroy)
+router.delete('/:id', tool.destroy)
 
 
 //Update
-router.put('/:id', tool.edit)
+router.put('/:id/edit', tool.edit)
 
 
 //Create
-router.post('/',tool.create)
+router.post('/new',tool.create)
 
 
 //Show

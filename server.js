@@ -23,6 +23,7 @@ app.use(require('./config/checkToken'));
 
 //ROUTES- make sure they are before catch all\\
 app.use('/api/projects', require('./routes/api/projects'))
+app.use('/api/tools', require('./routes/api/tools'))
 app.use('/api/users', require('./routes/api/users'))
 
 //CATCH-ALL ROUTE\\

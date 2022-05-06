@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom"
-import NavBar from "../../components/NavBar/NavBar"
+import Layout from "../../components/Layout/Layout";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+// import UserLogOut from "../../components/UserLogOut/UserLogOut";
 import * as projectsApi from "../../utilities/project-api"
 
 
@@ -26,8 +27,8 @@ export default function Projects(props) {
     }, [])
 
     return (
-        <>
-            <NavBar />
+        <Layout title="Project Directory">
+            
             <Link to="/projects/new"><h2>Create a new project</h2></Link>
             <ul className="list-unstyled list inline">
                 {projects && projects.map((project) => {
@@ -50,6 +51,6 @@ export default function Projects(props) {
 
 
 
-        </>
+        </Layout>
     )
 }

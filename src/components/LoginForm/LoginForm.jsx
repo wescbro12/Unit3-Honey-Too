@@ -2,12 +2,13 @@ import { useState } from 'react';
 import * as userService from '../../utilities/users-service';
 
 
+
 export default function LoginForm({ setUser }) {
-    const [credentials, setCredentials] = useState({
+       const [credentials, setCredentials] = useState({
         email: '',
         password: ''
     })
-    const [error, setError] = useState('')
+    const [error, setError] = useState('');
 
     const handleChange = (evt) => {
         setCredentials({ ...credentials, [evt.target.name]: evt.target.value });
@@ -21,6 +22,12 @@ export default function LoginForm({ setUser }) {
             setUser(user)
         } catch (error) {
             setError(error.message)
+        } finally {
+            setCredentials({
+                email: '',
+                password:''
+            })
+            
         }
     }
 

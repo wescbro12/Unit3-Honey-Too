@@ -1,10 +1,13 @@
 import React from "react";
+import UserLogOut from "../UserLogOut/UserLogOut";
+import { useState } from "react";
 
 export default function NavBar(props) {
+    const [user, setUser] = useState()
     return (
         <main>
             {/* //bootstrap css CDN */}
-            
+
 
             {/* //bootstrap js CDN */}
             <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
@@ -29,13 +32,16 @@ export default function NavBar(props) {
                     </div>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link dropdown-toggle" data-toggle="dropdown" href="/projects" role="button" aria-expanded="false">Tools</a>
+                    <a className="nav-link dropdown-toggle" data-toggle="dropdown" href="/tools" role="button" aria-expanded="false">Tools</a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="/tools/new">Add a Tool</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="/tools">Tools Directory</a>
 
                     </div>
+                </li>
+                <li className="nav-item">
+                    <UserLogOut user={user} setUser={setUser}/>
                 </li>
 
             </ul>

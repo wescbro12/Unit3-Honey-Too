@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 // import { updateProject } from "../../utilities/project-api";
 import { Link } from "react-router-dom";
 import * as projectsApi from "../../utilities/project-api";
-import NavBar from "../../components/NavBar/NavBar";
+import Layout from "../../components/Layout/Layout";
 import { useParams } from "react-router-dom";
 
 export default function Update(props) {
@@ -47,9 +47,9 @@ export default function Update(props) {
    
 
     return (
-        <>
-            <NavBar />
-            <h1>Edit your Project</h1>
+        <Layout title="Edit your project">
+           
+            
 
             <div>
                 <form onSubmit={handleSubmit}>
@@ -61,6 +61,6 @@ export default function Update(props) {
                 </form>
             </div>
           
-        </>
+        </Layout>
     )
 }

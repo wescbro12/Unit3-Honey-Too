@@ -19,6 +19,6 @@ export async function updateProject(payload, id) {
     return sendRequest(`${Base_URL}/${id}/edit`, 'PUT', payload)
 }
 
-export async function deleteProject(payload) {
-    return sendRequest(`${Base_URL}/destroy`, 'DELETE', payload)
+export async function deleteProject(id) {
+    return sendRequest(`${Base_URL}/destroy`, 'DELETE', `${id}`)
 }

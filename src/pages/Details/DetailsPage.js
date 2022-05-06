@@ -1,16 +1,18 @@
-import NavBar from "../../components/NavBar/NavBar";
+import Layout from "../../components/Layout/Layout";
 import { Link } from "react-router-dom";
 import * as projectsApi from "../../utilities/project-api";
 import { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-export default function Details({user, setUser}) {
+export default function Details({ user, setUser }) {
     const title = useRef(null)
     const entry = useRef(null)
+    const Navigate = useNavigate()
     let params = useParams()
     const [project, setProject] = useState({
         title: '',
-        entry:''
+        entry: ''
 
     })
     const [error, setError] = useState('')
@@ -22,14 +24,24 @@ export default function Details({user, setUser}) {
         } catch (error) {
             setError("Bad Request")
         }
-    }
-
+    }    
     useEffect(() => {
         getOneProject(params.id)
-    },[])
+    }, [])
+
+    const handleDelete = async (id) => {
+        try {
+            const response = await projectsApi.deleteProject(id)
+            setProject(response)
+        } catch (error) {
+            setError(error.message)
+        } finally {
+            Navigate('/projects')
+        }
+    }
     return (
-        <>
-            <NavBar />
+        <Layout>
+
             <h1>{project.title}</h1>
             <div>
                 <p>Project Description:</p>
@@ -42,9 +54,11 @@ export default function Details({user, setUser}) {
                 </ul>
                 {/* <p>Notes:</p> <textarea className="displaytext" /> */}
                 <br /><Link to={`/projects/${project._id}/edit`}>Edit your project</Link><br />
-                //add delete form here
+                <form onSubmit={handleDelete}>
+                    <input type="submit" value="Delete this project" />
+                </form>
             </div>
-        </>
+        </Layout>
 
 
     )

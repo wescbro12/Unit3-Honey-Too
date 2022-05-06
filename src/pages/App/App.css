@@ -1,19 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Righteous&family=Wire+One&display=swap');
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  
+  background: url(https://i.imgur.com/UQhlbwf.jpg);
+  background-repeat: no-repeat;
+  /* background:fixed; */
+  background-size: cover;
+  /* background-color: rgb(7, 167, 145); */
+  font-family: 'Righteous', cursive;
+  font-size: 18px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+footer {
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  right: 0;
+  left: 0;
 
-.App-header {
+}
+h1 {
+  font-family: 'Monoton', cursive;
+  text-align: center;
+  color: rgb(48, 41, 3);
+}
+h2 {
+  font-family: 'Wire One', sans-serif;
+  text-align: right;
+  color: rgb(14, 11, 1);
+  background-color: rgb(202, 108, 1);
+
+}
+.back {
+  font-family: 'Wire One', sans-serif;
+  text-align: left;
+  background-color: rgba(250, 237, 53, 0.11);
+  color: rgb(116, 63, 4);
+  font-size: 40px;
+  text-emphasis: bold;
+}
+h3 {
+  font-family: 'Monoton', cursive;
+  text-align: left;
+  color: rgb(15, 14, 1);
+}
+a {
+  color: rgb(202, 108, 1);
+  font-size: large;
+
+}
+p {
+  font-family: 'Righteous', cursive;
+  text-align: left;
+  color: rgb(48, 41, 3);
+  
+}
+textarea {
+  width: 445px;
+  height: 193px;
+  background-color: rgba(206, 206, 46, 0.308);
+}
+.displaytext {
+  width: 50vw;
+  border: none;
+}
+input[type=text] {
+  background-color: rgba(206, 206, 46, 0.308);
+  padding: .3em
+}
+.directory {
+  text-align: center;
+  top: 0;
+}
+.card-body {
+  background-color: rgba(250, 237, 53, 0.185);
+}
+.card {
+  width: 270px;
+  height: 363px;
+}
+.card-text {
+  line-height: 1.2em;
+  height: 2.6em;
+  overflow: hidden;
+}
+.btn {
+  viewport-fit: 2vh;
+}
+.logo {
+  height: 50vmin;
+  width: 50vmin;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border-radius: 50%; */
+  
+}
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -22,17 +110,8 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+
+

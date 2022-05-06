@@ -1,6 +1,4 @@
 import { Link } from "react-router-dom";
-import NavBar from "../../components/NavBar/NavBar";
-// import ToolForm from "../../components/NewTool/NewTool";
 import { useState, useEffect } from "react";
 import Layout from "../../components/Layout/Layout";
 import * as toolsApi from "../../utilities/tool-api"
@@ -9,7 +7,7 @@ import * as toolsApi from "../../utilities/tool-api"
 export default function Tools(props) {
     const [tools, setTools] = useState([])
     const [error, setError] = useState('')
-    
+
     const getAllTools = async () => {
         try {
             const response = await toolsApi.getAllTools()
@@ -23,17 +21,21 @@ export default function Tools(props) {
     }, [])
 
     return (
-        <>
-            <NavBar />
+        <Layout title="Tool Directory">
+
             <Link to="/tools/new"><h2>Create a new tool</h2></Link>
             <ul>
                 {tools && tools.map((tool) => {
-                    <li key ={`${tool._id}`}>
-                        <a href={`/tools/${tool._id}`}>{ tool.name}</a>
-                    </li>
+                    return (
+                        <li key={`${tool._id}`}>
+                            <a href={`/tools/${tool._id}`}>{tool.name}</a>
+                        </li>
+                    )
                 })}
+
+
             </ul>
             <Link to="/projects"><h3>Go to the Project Directory</h3></Link>
-        </>
+        </Layout>
     )
 }

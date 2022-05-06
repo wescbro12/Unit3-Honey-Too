@@ -21,7 +21,7 @@ export default function ToolForm() {
     return (
         <>
             <form onSubmit={handleSubmit}>
-                console.log('button clicked')
+                
                 <p>Please enter the tools needed for this project</p>
                 <input name="name" ref={name} /><br />
                 <input type="submit" value="Add Tools to Your Project" />

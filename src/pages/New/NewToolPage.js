@@ -1,13 +1,13 @@
 import Layout from "../../components/Layout/Layout";
 import ToolForm from "../../components/NewTool/NewTool";
 
-export default function NewToolPage() {
-    
+export default function NewToolPage({user, setUser}) {
+
     return (
         <Layout>
-            
-            
-            <ToolForm />
+            <div className="show">
+                <ToolForm />
+            </div>
         </Layout>
     )
 }

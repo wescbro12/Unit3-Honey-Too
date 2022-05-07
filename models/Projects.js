@@ -5,6 +5,7 @@ const Schema = mongoose.Schema;
 const projectSchema = new Schema({
     title: String,
     entry: String,
+    user:String
     // tools: [{ type: mongoose.Schema.ObjectId, ref: "Tool" }]
 });
 

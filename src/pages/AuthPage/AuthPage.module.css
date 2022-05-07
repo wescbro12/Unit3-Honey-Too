@@ -1,4 +1,4 @@
-.AuthPage {
+.auth {
     height: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -6,7 +6,7 @@
     border-radius: 2vmin;
 }
 
-.AuthPage h3 {
+.auth h3 {
     margin-top: 4vmin;
     text-align: center;
     color: var(--text-light);

@@ -1,12 +1,11 @@
 import Layout from "../../components/Layout/Layout"
-import NavBar from "../../components/NavBar/NavBar"
 import ProjectForm from "../../components/ProjectForm/ProjectForm"
-export default function NewPage() {
+export default function NewPage({user, setUser}) {
     
     return (
         <>
             <Layout title="New Project">
-                <ProjectForm />
+                <ProjectForm user={user} />
 
             </Layout>
             {/* <NavBar /> */}

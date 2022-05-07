@@ -7,5 +7,9 @@ export async function getAllTools() {
 }
 
 export async function createTool(payload) {
-    return sendRequest(`${Base_URL}/`, 'POST', payload)
+    return sendRequest(`${Base_URL}/new`, 'POST', payload)
+}
+
+export async function getOneTool(id) {
+    return sendRequest(`${Base_URL}/${id}`)
 }

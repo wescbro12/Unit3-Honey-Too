@@ -5,7 +5,8 @@ import { createProject } from "../../utilities/project-api";
 
 
 
-export default function ProjectForm() {
+
+export default function ProjectForm({user}) {
     const Navigate = useNavigate()
     const title = useRef(null)
     const entry = useRef(null)
@@ -19,7 +20,7 @@ export default function ProjectForm() {
             //         title: title.current.value, entry: entry.current.value
             //     })
             // })
-            await createProject({ title: title.current.value, entry: entry.current.value })
+            await createProject({ title: title.current.value, entry: entry.current.value, user:user.name })
         } catch (error) {
             console.error(error)
         } finally {

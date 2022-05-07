@@ -8,10 +8,10 @@ export async function getAllProjects() {
 
 export async function createProject(payload) {
     return sendRequest(`${Base_URL}/new`, 'POST', payload)
-  
+
 }
 
-export async function getOneProject( id) {
+export async function getOneProject(id) {
     return sendRequest(`${Base_URL}/${id}`)
 }
 
@@ -20,5 +20,5 @@ export async function updateProject(payload, id) {
 }
 
 export async function deleteProject(id) {
-    return sendRequest(`${Base_URL}/destroy`, 'DELETE', `${id}`)
+    return sendRequest(`${Base_URL}/${id}/destroy`, 'DELETE', `${id}`)
 }

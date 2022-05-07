@@ -51,12 +51,12 @@ export default function Update(props) {
            
             
 
-            <div>
+            <div className="show">
                 <form onSubmit={handleSubmit}>
-                    <p>Project Name:</p><br/><input name="title" type=" text" defaultValue={project.title} ref={title} /><br />
-                    <p>Project Description:</p><br /><textarea name="entry" type="text" defaultValue={project.entry} ref={entry} /><br />
+                    <h5>Project Name:</h5><br/><input name="title" type=" text" defaultValue={project.title} ref={title} /><br />
+                    <h5>Project Description:</h5><br /><textarea name="entry" type="text" defaultValue={project.entry} ref={entry} /><br />
                     
-                <Link to="/tools/new"><h4>Add tools to your project</h4></Link>
+               <br/> <Link to="/tools/new"><h4>Add tools to your project</h4></Link>
                     
                 </form>
             </div>

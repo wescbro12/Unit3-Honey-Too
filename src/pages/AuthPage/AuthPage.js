@@ -6,10 +6,15 @@ import styles from './AuthPage.module.css'
 export default function AuthPage({ setUser }) {
     const [showSignUp, setShowSignUp] = useState(false)
     return (
-        <main className={styles.AuthPage}>
+        <main className="auth">
             <h1>Honey Do Too</h1>
-            <img src="https://i.imgur.com/XPZajeb.png" className="logo"/>
-            <button onClick={() => setShowSignUp(!showSignUp)}>{showSignUp ? 'Log In' : 'Sign Up'}</button>
+            <div className='intro'>
+                Welcome to the Honey Do Too app.
+                This is a place where DIYers can show off their projects.
+                Please sign-up/log-in
+            </div>
+            {/* <img src="https://i.imgur.com/XPZajeb.png" className="logo"/> */}
+            <h4 onClick={() => setShowSignUp(!showSignUp)}>{showSignUp ? 'Log In' : 'Sign Up'}</h4>
             {
                 showSignUp ?
                     <SignUpForm setUser={setUser} /> :

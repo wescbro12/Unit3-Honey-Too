@@ -53,7 +53,11 @@ a {
   font-size: large;
 
 }
-p {
+Link {
+  color: rgb(202, 108, 1);
+  font-size: large;
+}
+h5 {
   font-family: 'Righteous', cursive;
   text-align: left;
   color: rgb(48, 41, 3);
@@ -64,11 +68,23 @@ textarea {
   height: 193px;
   background-color: rgba(206, 206, 46, 0.308);
 }
+.form-container{
+  display:flex;
+  align-content:center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.intro {
+  display: flex;
+  width:50vw;
+  justify-content: flex-start;
+
+}
 .displaytext {
   width: 50vw;
   border: none;
 }
-input[type=text] {
+input {
   background-color: rgba(206, 206, 46, 0.308);
   padding: .3em
 }
@@ -101,6 +117,12 @@ input[type=text] {
   /* border-radius: 50%; */
   
 }
+.show {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
 /* .App-header {
   background-color: #282c34;
   min-height: 100vh;

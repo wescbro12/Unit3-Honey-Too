@@ -6,11 +6,14 @@ import { useParams } from "react-router-dom";
 import * as projectsApi from "../../utilities/project-api"
 
 
-export default function Projects(props) {
+
+export default function Projects({user}) {
+   
     //declaring Variables and State
     // const id = useParams()
     const [projects, setProjects] = useState([])
     const [error, setError] = useState('')
+    const [refresh, setRefresh] = useState(false)
 
     //Functions here
     const getAllProjects = async () => {
@@ -24,15 +27,16 @@ export default function Projects(props) {
 
     useEffect(() => {
         getAllProjects()
-    }, [])
-
+    }, [refresh])
     return (
+
         <Layout title="Project Directory">
-            
+
             <Link to="/projects/new"><h2>Create a new project</h2></Link>
             <ul className="list-unstyled list inline">
                 {projects && projects.map((project) => {
                     return (
+                        project.user === user.name ?
                         <li className="list-inline-item">
                             <div className="col mb-4">
                                 <div className="card" style={{ width: 15 + "em" }}>
@@ -44,7 +48,8 @@ export default function Projects(props) {
                                     </div>
                                 </div>
                             </div>
-                        </li>
+                            </li>
+                            : null
                     )
                 })}
             </ul>

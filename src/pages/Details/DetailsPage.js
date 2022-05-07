@@ -1,6 +1,7 @@
 import Layout from "../../components/Layout/Layout";
 import { Link } from "react-router-dom";
 import * as projectsApi from "../../utilities/project-api";
+// import * as toolsApi from "../../utilities/tool-api"
 import { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -15,6 +16,10 @@ export default function Details({ user, setUser }) {
         entry: ''
 
     })
+    // const [tool, setTool] = useState({
+    //     name: ''
+
+    // })
     const [error, setError] = useState('')
 
     const getOneProject = async (id) => {
@@ -24,9 +29,20 @@ export default function Details({ user, setUser }) {
         } catch (error) {
             setError("Bad Request")
         }
-    }    
+    }   
+    
+
+    // const getOneTool = async (id) => {
+    //     try {
+    //         const response = await toolsApi.getOneTool(id)
+    //         setTool(response)
+    //     } catch (error) {
+    //         setError("Bad Request")
+    //     }
+    // }
     useEffect(() => {
         getOneProject(params.id)
+        // getOneTool(params.id)
     }, [])
 
     const handleDelete = async (id) => {
@@ -44,12 +60,13 @@ export default function Details({ user, setUser }) {
 
             <h1>{project.title}</h1>
             <div>
-                <p>Project Description:</p>
-                <div>
-                    {project.entry}
+                <h4>Project Description:</h4><br/>
+                <br/><div className="show">
+                    <h5>{project.entry}</h5>
                 </div>
-                <p>Tools needed for this project: <br /></p>
+                <h4>Tools needed for this project: <br /></h4>
                 <ul>
+                    {/* <li>{tool.name}</li> */}
                     <li>Hammer</li>
                 </ul>
                 {/* <p>Notes:</p> <textarea className="displaytext" /> */}

@@ -1,4 +1,5 @@
 const Tool = require('../../models/Tools')
+const Project = require('../../models/Projects');
 
 module.exports = {
     index,
@@ -15,7 +16,7 @@ async function index(req, res) {
         const tools = await Tool.find({})
         res.status(200).json(tools)
     } catch (err) {
-        res.status(400).json({msg:err.message})
+        res.status(400).json({ msg: err.message })
     }
 }
 
@@ -35,7 +36,12 @@ async function destroy(req, res) {
 //Create
 async function create(req, res) {
     try {
+        // console.log(req.params.id)
         const tool = await Tool.create(req.body)
+        const project = await Project.findById(req.params.id)
+        project.tools.push(tool._id)
+        project.save()
+        // console.log(project)
         res.status(200).json(tool)
     } catch (err) {
         res.status(400).json({ msg: err.message })

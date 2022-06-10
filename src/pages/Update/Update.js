@@ -12,13 +12,13 @@ export default function Update(props) {
     const title = useRef(null)
     const entry = useRef(null)
     let params = useParams()
-    
+
     const [project, setProject] = useState({
         title: '',
-        entry:'',
+        entry: '',
     })
     const [error, setError] = useState('')
-    
+
     const updateProject = async (id) => {
         try {
             const response = await projectsApi.getOneProject(id)
@@ -30,37 +30,37 @@ export default function Update(props) {
 
     useEffect(() => {
         updateProject(params.id)
-    })
+    }, [])
 
     const handleSubmit = async (evt) => {
         evt.preventDefault()
         try {
-            await projectsApi.updateProject({ title: title.current.value, entry: entry.current.value })     
+            await projectsApi.updateProject({ title: title.current.value, entry: entry.current.value })
         } catch (error) {
             console.error(error)
         } finally {
             Navigate()
         }
-       
+
     }
 
-   
+
 
     return (
         <Layout title="Edit your project">
-           
-            
+
+
 
             <div className="show">
                 <form onSubmit={handleSubmit}>
-                    <h5>Project Name:</h5><br/><input name="title" type=" text" defaultValue={project.title} ref={title} /><br />
+                    <h5>Project Name:</h5><br /><input name="title" type=" text" defaultValue={project.title} ref={title} /><br />
                     <h5>Project Description:</h5><br /><textarea name="entry" type="text" defaultValue={project.entry} ref={entry} /><br />
-                    
-               <br/> <Link to="/tools/new"><h4>Add tools to your project</h4></Link>
-                    
+
+                    <br /> <Link to={`/tools/${project._id}/new`}><h4>Add tools to your project</h4></Link>
+
                 </form>
             </div>
-          
+
         </Layout>
     )
 }

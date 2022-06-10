@@ -1,16 +1,17 @@
 import React from "react";
 import { useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { createTool } from "../../utilities/tool-api";
 
 export default function ToolForm() {
     const Navigate = useNavigate()
     const name = useRef(null)
+    const { id } = useParams()
 
     const handleSubmit = async (evt) => {
         evt.preventDefault()
         try {
-            await createTool({name:name.current.value})
+            await createTool({ name: name.current.value }, id)
         } catch (error) {
             console.error(error)
         } finally {
@@ -21,11 +22,11 @@ export default function ToolForm() {
     return (
         <>
             <form onSubmit={handleSubmit}>
-                
+
                 <p>Please enter the tools needed for this project</p>
                 <input name="name" ref={name} /><br />
                 <input type="submit" value="Add Tools to Your Project" />
-        </form>
+            </form>
         </>
     )
 }

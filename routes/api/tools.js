@@ -15,7 +15,7 @@ router.put('/:id/edit', tool.edit)
 
 
 //Create
-router.post('/new',tool.create)
+router.post('/new/:id', tool.create)
 
 
 //Show
